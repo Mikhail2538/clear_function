@@ -1,8 +1,11 @@
-version: 1.0.{build}
-image: node
-environment:
-  nodejs_version: '16'
+image: Ubuntu1804
+stack: node 12
+branches:
+  only:
+    - master
+cache: node_modules
 install:
   - npm install
+build: off
 test_script:
-  - npm test
+  - npm run lint && npm test
